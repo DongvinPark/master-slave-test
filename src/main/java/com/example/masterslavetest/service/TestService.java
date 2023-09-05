@@ -44,9 +44,7 @@ public class TestService {
 
   @Transactional(readOnly = true)
   public List<TestEntity> readList(Integer page){
-    return testEntityRepository.findAll(
-        PageRequest.of(page, 20)
-    ).getContent();
+    return testEntityRepository.findAllTestEntitiesByNativeQuery();
   }
 
   public String deleteOne(Long id){
