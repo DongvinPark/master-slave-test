@@ -1,22 +1,23 @@
 spring:
-  master:
-    datasource:
-      url: jdbc:postgresql://masterhost:5432/postgres
-      username: postgres
-      password: 12345678
-      driver-class-name: org.postgresql.Driver
-  slave1:
-    datasource:
-      url: jdbc:postgresql://slave1host:5432/postgres
-      username: postgres
-      password: 12345678
-      driver-class-name: org.postgresql.Driver
-  slave2:
-    datasource:
-      url: jdbc:postgresql://slave2host:5432/postgres
-      username: postgres
-      password: 12345678
-      driver-class-name: org.postgresql.Driver
+  datasource:
+    master:
+      hikari:
+        username: postgres
+        password: 12345678
+        driver-class-name: org.postgresql.Driver
+        jdbc-url: jdbc:postgresql://masterhost:5432/postgres
+    slave1:
+      hikari:
+        username: postgres
+        password: 12345678
+        driver-class-name: org.postgresql.Driver
+        jdbc-url: jdbc:postgresql://slave1host:5432/postgres
+    slave2:
+      hikari:
+        username: postgres
+        password: 12345678
+        driver-class-name: org.postgresql.Driver
+        jdbc-url: jdbc:postgresql://slave2host:5432/postgres
 
   output:
     ansi:

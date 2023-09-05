@@ -31,8 +31,8 @@ public class TestService {
 
     testEntity.updateName(newName);
 
-    // 이렇게 리턴할 경우 실제로도 수정 완료된 엔티티가 리턴될 것인가?
-    return testEntity;
+    // 저장을 한 다음에 해야 업데이트 된다.
+    return testEntityRepository.save(testEntity);
   }
 
   @Transactional(readOnly = true)
@@ -44,7 +44,7 @@ public class TestService {
 
   @Transactional(readOnly = true)
   public List<TestEntity> readList(Integer page){
-    return testEntityRepository.getTestEntityList(
+    return testEntityRepository.findAll(
         PageRequest.of(page, 20)
     ).getContent();
   }

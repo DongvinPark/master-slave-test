@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +25,7 @@ public class TestController {
     return testService.create();
   }
 
-  @PostMapping("/update/{id}/{newName}")
+  @PutMapping("/update")
   public TestEntity update(
     @RequestParam Long id, @RequestParam String newName
   ){
@@ -36,7 +37,7 @@ public class TestController {
     return testService.readOne();
   }
 
-  @GetMapping("/read-list/{page}")
+  @GetMapping("/read-list")
   public List<TestEntity> readList(
       @RequestParam Integer page
   ){
